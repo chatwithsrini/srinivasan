@@ -8,6 +8,7 @@ export default defineConfig(({ command }) => ({
   build: {
     outDir: "dist",
     assetsDir: "assets",
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         // Put JS files at root level to avoid MIME type issues
