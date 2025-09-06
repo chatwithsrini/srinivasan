@@ -10,10 +10,10 @@ export default defineConfig(({ command }) => ({
     assetsDir: "assets",
     rollupOptions: {
       output: {
-        // Simple naming strategy to avoid MIME type issues
+        // Put JS files at root level to avoid MIME type issues
         assetFileNames: "assets/[name][extname]",
-        chunkFileNames: "assets/[name].mjs",
-        entryFileNames: "assets/[name].mjs",
+        chunkFileNames: "[name].js",
+        entryFileNames: "[name].js",
       },
     },
   },
