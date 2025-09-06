@@ -7,14 +7,19 @@ export default defineConfig(({ command }) => ({
   base: command === "build" ? "/srinivasan/" : "/",
   build: {
     outDir: "dist",
-    assetsDir: "src/assets",
+    assetsDir: "assets",
     rollupOptions: {
       output: {
         // Keep original names for all asset files
-        assetFileNames: "src/assets/[name][extname]",
-        chunkFileNames: "src/assets/[name].js",
-        entryFileNames: "src/assets/[name].js",
+        assetFileNames: "assets/[name][extname]",
+        chunkFileNames: "assets/[name].js",
+        entryFileNames: "assets/[name].js",
       },
+    },
+  },
+  server: {
+    fs: {
+      strict: false,
     },
   },
 }));
