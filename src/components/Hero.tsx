@@ -67,10 +67,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center h-full">
         <div className="space-y-8">
           {/* Main Heading */}
-          <div
-            className="mb-6 sm:mb-8 animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
-          >
+          <div className="mb-6 sm:mb-8" style={{ animationDelay: "0.2s" }}>
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 uppercase tracking-wider leading-tight"
               style={{
@@ -88,7 +85,7 @@ const Hero = () => {
 
           {/* Subtitle */}
           <div
-            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 sm:mb-8 uppercase tracking-widest border-t border-b py-3 sm:py-4 animate-fade-in-up"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 sm:mb-8 uppercase tracking-widest border-t border-b py-3 sm:py-4"
             style={{
               color: "var(--text-secondary)",
               borderColor: "var(--accent-color)",
@@ -108,7 +105,7 @@ const Hero = () => {
 
           {/* Description */}
           <p
-            className="text-sm sm:text-base md:text-lg mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-mono animate-fade-in-up px-4"
+            className="text-sm sm:text-base md:text-lg mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-mono px-4"
             style={{
               color: "var(--text-muted)",
               letterSpacing: "0.05em",
