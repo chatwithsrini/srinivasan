@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 // @ts-ignore
 import logoLight from "../assets/logo.png";
 // @ts-ignore
@@ -11,6 +12,7 @@ interface HeaderProps {
 
 const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,17 +80,31 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
           <div className="flex items-center justify-between w-full md:hidden">
             {/* Logo - Centered */}
             <div className="flex-1 flex justify-center">
-              <a href="#home" className="flex items-center justify-center">
-                <img
-                  src={darkMode ? logoDark : logoLight}
-                  alt="Logo"
-                  className="object-contain"
-                  style={{
-                    height: "60px",
-                    maxWidth: "120px",
-                  }}
-                />
-              </a>
+              {location.pathname === "/blogs" ? (
+                <Link to="/#home" className="flex items-center justify-center">
+                  <img
+                    src={darkMode ? logoDark : logoLight}
+                    alt="Logo"
+                    className="object-contain"
+                    style={{
+                      height: "60px",
+                      maxWidth: "190px",
+                    }}
+                  />
+                </Link>
+              ) : (
+                <a href="#home" className="flex items-center justify-center">
+                  <img
+                    src={darkMode ? logoDark : logoLight}
+                    alt="Logo"
+                    className="object-contain"
+                    style={{
+                      height: "60px",
+                      maxWidth: "160px",
+                    }}
+                  />
+                </a>
+              )}
             </div>
 
             {/* Theme Toggle - Right Side */}
@@ -133,22 +149,41 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               className="flex items-center justify-center"
               style={{ width: "25%" }}
             >
-              <a
-                href="#home"
-                className="flex items-center justify-center w-full h-full"
-              >
-                <img
-                  src={darkMode ? logoDark : logoLight}
-                  alt="Logo"
-                  className="object-contain"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    maxHeight: "80px",
-                    maxWidth: "100%",
-                  }}
-                />
-              </a>
+              {location.pathname === "/blogs" ? (
+                <Link
+                  to="/#home"
+                  className="flex items-center justify-center w-full h-full"
+                >
+                  <img
+                    src={darkMode ? logoDark : logoLight}
+                    alt="Logo"
+                    className="object-contain"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      maxHeight: "80px",
+                      maxWidth: "100%",
+                    }}
+                  />
+                </Link>
+              ) : (
+                <a
+                  href="#home"
+                  className="flex items-center justify-center w-full h-full"
+                >
+                  <img
+                    src={darkMode ? logoDark : logoLight}
+                    alt="Logo"
+                    className="object-contain"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      maxHeight: "80px",
+                      maxWidth: "100%",
+                    }}
+                  />
+                </a>
+              )}
             </div>
 
             {/* Desktop Navigation - 65% */}
@@ -210,6 +245,19 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                   ),
                 },
                 {
+                  name: "Blogs",
+                  href: "/blogs",
+                  icon: (
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                    </svg>
+                  ),
+                },
+                {
                   name: "Contact",
                   href: "#contact",
                   icon: (
@@ -222,17 +270,48 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                     </svg>
                   ),
                 },
-              ].map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-base font-bold uppercase flex items-center"
-                  style={{ color: "var(--text-primary)" }}
-                >
-                  {item.icon}
-                  {item.name}
-                </a>
-              ))}
+              ].map((item) => {
+                if (item.name === "Blogs") {
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="text-base font-bold uppercase flex items-center hover-scale transition-all duration-300"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      {item.icon}
+                      {item.name}
+                    </Link>
+                  );
+                } else {
+                  // If we're on the blogs page, use Link to navigate to home with hash
+                  if (location.pathname === "/blogs") {
+                    return (
+                      <Link
+                        key={item.name}
+                        to={`/${item.href}`}
+                        className="text-base font-bold uppercase flex items-center hover-scale transition-all duration-300"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        {item.icon}
+                        {item.name}
+                      </Link>
+                    );
+                  } else {
+                    return (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="text-base font-bold uppercase flex items-center hover-scale transition-all duration-300"
+                        style={{ color: "var(--text-primary)" }}
+                      >
+                        {item.icon}
+                        {item.name}
+                      </a>
+                    );
+                  }
+                }
+              })}
             </nav>
 
             {/* Theme Toggle - 10% */}

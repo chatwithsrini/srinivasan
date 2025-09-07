@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [heroRef, heroVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.2 });
 
   useEffect(() => {
     setIsVisible(true);
@@ -64,10 +67,18 @@ const Hero = () => {
         ></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center h-full">
+      <div
+        ref={heroRef}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center h-full"
+      >
         <div className="space-y-8">
           {/* Main Heading */}
-          <div className="mb-6 sm:mb-8" style={{ animationDelay: "0.2s" }}>
+          <div
+            className={`mb-6 sm:mb-8 ${
+              heroVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
+            style={{ animationDelay: "0.2s" }}
+          >
             <h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 uppercase tracking-wider leading-tight"
               style={{
@@ -77,7 +88,10 @@ const Hero = () => {
               }}
             >
               <span className="block">TRANSFORMING IDEAS INTO</span>
-              <span className="block" style={{ color: "var(--accent-color)" }}>
+              <span
+                className="block animate-glow"
+                style={{ color: "var(--accent-color)" }}
+              >
                 DIGITAL REALITY
               </span>
             </h1>
@@ -85,7 +99,9 @@ const Hero = () => {
 
           {/* Subtitle */}
           <div
-            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 sm:mb-8 uppercase tracking-widest border-t border-b py-3 sm:py-4"
+            className={`text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 sm:mb-8 uppercase tracking-widest border-t border-b py-3 sm:py-4 ${
+              heroVisible ? "animate-slide-in-up" : "opacity-0"
+            }`}
             style={{
               color: "var(--text-secondary)",
               borderColor: "var(--accent-color)",
@@ -144,19 +160,25 @@ const Hero = () => {
 
           {/* Statistics */}
           <div
-            className="mb-8 sm:mb-12 animate-fade-in-up"
+            ref={statsRef}
+            className={`mb-8 sm:mb-12 ${
+              statsVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
             style={{ animationDelay: "0.8s" }}
           >
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
                 <div
                   key={stat.label}
-                  className="text-center p-4 sm:p-6 rounded-lg shadow-2xl"
+                  className={`text-center p-4 sm:p-6 rounded-lg shadow-2xl hover-lift hover-glow ${
+                    statsVisible ? "animate-bounce-in" : "opacity-0"
+                  }`}
                   style={{
                     backgroundColor: "var(--glass-bg)",
                     backdropFilter: "blur(10px)",
                     boxShadow:
                       "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05)",
+                    animationDelay: `${0.8 + index * 0.2}s`,
                   }}
                 >
                   <div

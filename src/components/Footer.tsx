@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -135,21 +136,37 @@ const Footer = () => {
             </h3>
             <nav className="space-y-2 sm:space-y-3">
               {[
-                { name: "Home", href: "#home" },
-                { name: "About", href: "#about" },
-                { name: "Skills", href: "#skills" },
-                { name: "Projects", href: "#projects" },
-                { name: "Contact", href: "#contact" },
-              ].map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-xs sm:text-sm transition-all duration-300 hover:translate-x-2 font-mono uppercase tracking-wider"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  {item.name}
-                </a>
-              ))}
+                { name: "Home", href: "#home", isBlog: false },
+                { name: "About", href: "#about", isBlog: false },
+                { name: "Skills", href: "#skills", isBlog: false },
+                { name: "Projects", href: "#projects", isBlog: false },
+                { name: "Blogs", href: "/blogs", isBlog: true },
+                { name: "Contact", href: "#contact", isBlog: false },
+              ].map((item) => {
+                if (item.isBlog) {
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="block text-xs sm:text-sm transition-all duration-300 hover:translate-x-2 font-mono uppercase tracking-wider"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                } else {
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="block text-xs sm:text-sm transition-all duration-300 hover:translate-x-2 font-mono uppercase tracking-wider"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                }
+              })}
             </nav>
           </div>
 

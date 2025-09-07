@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [contactRef, contactVisible] = useScrollAnimation({ threshold: 0.1 });
 
   useEffect(() => {
     setIsVisible(true);

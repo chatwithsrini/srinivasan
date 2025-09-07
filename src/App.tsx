@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Blogs from "./components/Blogs";
 import Footer from "./components/Footer";
 import BottomNavigation from "./components/BottomNavigation";
 import Loading from "./components/Loading";
@@ -41,24 +43,32 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       <Loading />
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <div
         className="min-h-screen transition-colors duration-300 animate-page-enter vintage-cursor"
         style={{ backgroundColor: "var(--bg-primary)" }}
       >
-        <main className="animate-page-enter pt-20 pb-20 md:pb-0">
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <main className="animate-page-enter pt-20 pb-20 md:pb-0">
+                <Hero />
+                <About />
+                <Skills />
+                <Projects />
+                <Contact />
+              </main>
+            }
+          />
+          <Route path="/blogs" element={<Blogs />} />
+        </Routes>
         <Footer />
       </div>
       <BottomNavigation darkMode={darkMode} />
-    </>
+    </Router>
   );
 }
 

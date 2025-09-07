@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [projectsRef, projectsVisible] = useScrollAnimation({ threshold: 0.1 });
 
   useEffect(() => {
     setIsVisible(true);
@@ -128,7 +130,7 @@ const Projects = () => {
       category: "AI & ML",
       description:
         "Intelligent document management ecosystem that automated complex file processing workflows, featuring AI-powered categorization, content extraction, and smart organization that revolutionized data management efficiency.",
-      tech: ["Python", "Machine Learning", "React", "AWS"],
+      tech: ["Python", "Machine Learning", "React", "AWS", "Azure"],
       features: [
         "Intelligent Document Processing",
         "Smart Auto-Categorization",
@@ -140,11 +142,11 @@ const Projects = () => {
     },
     {
       id: 9,
-      title: "AWS MCP SERVERS PROJECT",
+      title: "MULTI-CLOUD MCP SERVERS PROJECT",
       category: "Cloud & AI",
       description:
-        "Next-generation cloud infrastructure platform leveraging AWS MCP Servers to deliver unprecedented scalability and performance for AI workloads, enabling enterprise-grade machine learning at massive scale.",
-      tech: ["AWS", "Python", "Docker", "Kubernetes"],
+        "Next-generation multi-cloud infrastructure platform leveraging AWS MCP Servers and Azure Cloud Services to deliver unprecedented scalability and performance for AI workloads, enabling enterprise-grade machine learning at massive scale.",
+      tech: ["AWS", "Azure", "Python", "Docker", "Kubernetes"],
       features: [
         "Dynamic Auto-Scaling",
         "Intelligent Load Balancing",

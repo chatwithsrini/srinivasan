@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 interface BottomNavigationProps {
   darkMode: boolean;
@@ -6,8 +7,15 @@ interface BottomNavigationProps {
 
 const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
   const [activeTab, setActiveTab] = useState("home");
+  const location = useLocation();
 
   useEffect(() => {
+    // Set active tab based on current route
+    if (location.pathname === "/blogs") {
+      setActiveTab("blogs");
+      return;
+    }
+
     const handleScroll = () => {
       const sections = ["home", "about", "skills", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
@@ -29,7 +37,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navigationItems = [
     {
@@ -73,6 +81,16 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
       ),
     },
     {
+      id: "blogs",
+      name: "Blogs",
+      href: "/blogs",
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+        </svg>
+      ),
+    },
+    {
       id: "contact",
       name: "Contact",
       href: "#contact",
@@ -100,29 +118,84 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
         className="flex items-center justify-around py-3"
         style={{ minHeight: "80px" }}
       >
-        {navigationItems.map((item) => (
-          <a
-            key={item.id}
-            href={item.href}
-            onClick={() => setActiveTab(item.id)}
-            className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-all duration-300 ${
-              activeTab === item.id ? "scale-110" : "scale-100"
-            }`}
-            style={{
-              color:
-                activeTab === item.id
-                  ? "var(--accent-color)"
-                  : "var(--text-secondary)",
-              backgroundColor:
-                activeTab === item.id ? "var(--glass-bg)" : "transparent",
-            }}
-          >
-            <div className="mb-1">{item.icon}</div>
-            <span className="text-xs font-bold uppercase tracking-wider font-mono">
-              {item.name}
-            </span>
-          </a>
-        ))}
+        {navigationItems.map((item) => {
+          if (item.id === "blogs") {
+            return (
+              <Link
+                key={item.id}
+                to={item.href}
+                onClick={() => setActiveTab(item.id)}
+                className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-all duration-300 ${
+                  activeTab === item.id ? "scale-110" : "scale-100"
+                }`}
+                style={{
+                  color:
+                    activeTab === item.id
+                      ? "var(--accent-color)"
+                      : "var(--text-secondary)",
+                  backgroundColor:
+                    activeTab === item.id ? "var(--glass-bg)" : "transparent",
+                }}
+              >
+                <div className="mb-1">{item.icon}</div>
+                <span className="text-xs font-bold uppercase tracking-wider font-mono">
+                  {item.name}
+                </span>
+              </Link>
+            );
+          } else {
+            // If we're on the blogs page, use Link to navigate to home with hash
+            if (location.pathname === "/blogs") {
+              return (
+                <Link
+                  key={item.id}
+                  to={`/${item.href}`}
+                  onClick={() => setActiveTab(item.id)}
+                  className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-all duration-300 ${
+                    activeTab === item.id ? "scale-110" : "scale-100"
+                  }`}
+                  style={{
+                    color:
+                      activeTab === item.id
+                        ? "var(--accent-color)"
+                        : "var(--text-secondary)",
+                    backgroundColor:
+                      activeTab === item.id ? "var(--glass-bg)" : "transparent",
+                  }}
+                >
+                  <div className="mb-1">{item.icon}</div>
+                  <span className="text-xs font-bold uppercase tracking-wider font-mono">
+                    {item.name}
+                  </span>
+                </Link>
+              );
+            } else {
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => setActiveTab(item.id)}
+                  className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-all duration-300 ${
+                    activeTab === item.id ? "scale-110" : "scale-100"
+                  }`}
+                  style={{
+                    color:
+                      activeTab === item.id
+                        ? "var(--accent-color)"
+                        : "var(--text-secondary)",
+                    backgroundColor:
+                      activeTab === item.id ? "var(--glass-bg)" : "transparent",
+                  }}
+                >
+                  <div className="mb-1">{item.icon}</div>
+                  <span className="text-xs font-bold uppercase tracking-wider font-mono">
+                    {item.name}
+                  </span>
+                </a>
+              );
+            }
+          }
+        })}
       </div>
     </div>
   );

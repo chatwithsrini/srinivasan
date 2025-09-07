@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [aboutRef, aboutVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [principlesRef, principlesVisible] = useScrollAnimation({
+    threshold: 0.2,
+  });
 
   useEffect(() => {
     setIsVisible(true);
@@ -61,7 +66,7 @@ const About = () => {
       year: "2025",
       title: "FUTURE-TECH VISIONARY",
       description:
-        "Pioneering next-generation AI technologies with AWS MCP Servers and Agentic AI systems, building autonomous solutions that will define the future of intelligent automation.",
+        "Pioneering next-generation AI technologies with AWS MCP Servers, Azure Cloud Services, and Agentic AI systems, building autonomous solutions that will define the future of intelligent automation.",
     },
   ];
 
@@ -98,11 +103,16 @@ const About = () => {
         }}
       ></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
+      <div
+        ref={aboutRef}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center"
+      >
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 uppercase font-mono animate-fade-in-up"
+            className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 uppercase font-mono ${
+              aboutVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
             style={{
               color: "var(--text-primary)",
               textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
@@ -112,7 +122,9 @@ const About = () => {
             ABOUT
           </h2>
           <h3
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 uppercase font-mono animate-fade-in-up"
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 uppercase font-mono ${
+              aboutVisible ? "animate-slide-in-up" : "opacity-0"
+            }`}
             style={{
               color: "var(--accent-color)",
               animationDelay: "0.4s",
@@ -188,7 +200,7 @@ const About = () => {
                     "> TODAY, I'M PIONEERING THE FUTURE WITH AI-DRIVEN SOLUTIONS,"
                   }
                   {
-                    " AWS CLOUD ARCHITECTURE, AND AGENTIC AI SYSTEMS. MY MISSION:"
+                    " AWS & AZURE CLOUD ARCHITECTURE, AND AGENTIC AI SYSTEMS. MY MISSION:"
                   }
                   {
                     " BRIDGING THE GAP BETWEEN CUTTING-EDGE TECHNOLOGY AND REAL-WORLD"
