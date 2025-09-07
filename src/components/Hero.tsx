@@ -6,9 +6,9 @@ const Hero = () => {
   const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.2 });
 
   const stats = [
-    { number: "8+", label: "Years Experience" },
-    { number: "15", label: "Projects Delivered" },
-    { number: "10", label: "Happy Clients" },
+    { number: "8+", label: "YEARS EXPERIENCE" },
+    { number: "15", label: "PROJECTS DELIVERED" },
+    { number: "10", label: "HAPPY CLIENTS" },
   ];
 
   return (

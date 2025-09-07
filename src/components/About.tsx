@@ -8,23 +8,23 @@ const About = () => {
     {
       title: "INNOVATION FIRST",
       description:
-        "Embracing cutting-edge technologies to solve complex problems.",
+        "EMBRACING CUTTING-EDGE TECHNOLOGIES TO SOLVE COMPLEX PROBLEMS.",
       icon: "💡",
     },
     {
       title: "QUALITY CODE",
-      description: "Writing clean, maintainable, and scalable applications.",
+      description: "WRITING CLEAN, MAINTAINABLE, AND SCALABLE APPLICATIONS.",
       icon: "⚡",
     },
     {
       title: "USER EXPERIENCE",
       description:
-        "Creating intuitive interfaces that users love to interact with.",
+        "CREATING INTUITIVE INTERFACES THAT USERS LOVE TO INTERACT WITH.",
       icon: "🎯",
     },
     {
       title: "CONTINUOUS LEARNING",
-      description: "Staying updated with the latest trends and technologies.",
+      description: "STAYING UPDATED WITH THE LATEST TRENDS AND TECHNOLOGIES.",
       icon: "📚",
     },
   ];

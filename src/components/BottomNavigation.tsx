@@ -41,7 +41,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
   const navigationItems = [
     {
       id: "home",
-      name: "Home",
+      name: "HOME",
       href: "#home",
       icon: (
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
     },
     {
       id: "about",
-      name: "About",
+      name: "ABOUT",
       href: "#about",
       icon: (
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
     },
     {
       id: "skills",
-      name: "Skills",
+      name: "SKILLS",
       href: "#skills",
       icon: (
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
     },
     {
       id: "projects",
-      name: "Projects",
+      name: "PROJECTS",
       href: "#projects",
       icon: (
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
     },
     {
       id: "blogs",
-      name: "Blogs",
+      name: "BLOGS",
       href: "/blogs",
       icon: (
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -91,7 +91,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
     },
     {
       id: "contact",
-      name: "Contact",
+      name: "CONTACT",
       href: "#contact",
       icon: (
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

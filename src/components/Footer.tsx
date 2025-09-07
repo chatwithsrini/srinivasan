@@ -60,7 +60,7 @@ const Footer = () => {
                     </svg>
                   ),
                   href: "https://github.com/chatwithsrini",
-                  name: "GitHub",
+                  name: "GITHUB",
                 },
                 {
                   icon: (
@@ -73,7 +73,7 @@ const Footer = () => {
                     </svg>
                   ),
                   href: "https://www.linkedin.com/in/s-srinivasan90/",
-                  name: "LinkedIn",
+                  name: "LINKEDIN",
                 },
                 {
                   icon: (
@@ -86,7 +86,7 @@ const Footer = () => {
                     </svg>
                   ),
                   href: "https://twitter.com/srinivasansekar",
-                  name: "Twitter",
+                  name: "TWITTER",
                 },
                 {
                   icon: (
@@ -99,7 +99,7 @@ const Footer = () => {
                     </svg>
                   ),
                   href: "mailto:s.srinivasan90@hotmail.com",
-                  name: "Email",
+                  name: "EMAIL",
                 },
               ].map((social) => (
                 <a
@@ -131,12 +131,12 @@ const Footer = () => {
             </h3>
             <nav className="space-y-2 sm:space-y-3">
               {[
-                { name: "Home", href: "#home", isBlog: false },
-                { name: "About", href: "#about", isBlog: false },
-                { name: "Skills", href: "#skills", isBlog: false },
-                { name: "Projects", href: "#projects", isBlog: false },
-                { name: "Blogs", href: "/blogs", isBlog: true },
-                { name: "Contact", href: "#contact", isBlog: false },
+                { name: "HOME", href: "#home", isBlog: false },
+                { name: "ABOUT", href: "#about", isBlog: false },
+                { name: "SKILLS", href: "#skills", isBlog: false },
+                { name: "PROJECTS", href: "#projects", isBlog: false },
+                { name: "BLOGS", href: "/blogs", isBlog: true },
+                { name: "CONTACT", href: "#contact", isBlog: false },
               ].map((item) => {
                 if (item.isBlog) {
                   return (

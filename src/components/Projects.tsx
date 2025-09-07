@@ -5,7 +5,7 @@ const Projects = () => {
     {
       id: 1,
       title: "SCHOOL ERP SYSTEM",
-      category: "Mobile Dev",
+      category: "MOBILE DEV",
       description:
         "Revolutionary educational management platform that digitized entire school operations, streamlining student enrollment, academic tracking, and parent communication through an intuitive mobile interface.",
       tech: ["React Native", "JavaScript", "Firebase", "Redux"],
@@ -21,7 +21,7 @@ const Projects = () => {
     {
       id: 2,
       title: "JEWELLERY SHOP APP",
-      category: "Mobile Dev",
+      category: "MOBILE DEV",
       description:
         "Premium e-commerce solution that transformed traditional jewelry retail, featuring high-resolution product showcases, secure payment processing, and intelligent inventory management for luxury goods.",
       tech: ["React Native", "Node.js", "MongoDB", "Stripe"],
@@ -37,7 +37,7 @@ const Projects = () => {
     {
       id: 3,
       title: "RESTAURANT MANAGEMENT APP",
-      category: "Mobile Dev",
+      category: "MOBILE DEV",
       description:
         "Complete digital transformation solution for restaurants, integrating table reservations, dynamic menu management, and seamless order processing to enhance customer experience and operational efficiency.",
       tech: ["React Native", "Firebase", "JavaScript", "Redux"],
@@ -53,7 +53,7 @@ const Projects = () => {
     {
       id: 4,
       title: "MEDIGURU TELEHEALTH PLATFORM",
-      category: "Web App",
+      category: "WEB APP",
       description:
         "Groundbreaking telehealth platform that revolutionized remote healthcare delivery, enabling seamless video consultations, digital prescription management, and comprehensive patient care through cutting-edge React and Electron architecture.",
       tech: ["React", "Electron", "Node.js", "MongoDB"],
@@ -70,7 +70,7 @@ const Projects = () => {
     {
       id: 5,
       title: "VERA WHOLE HEALTH MOBILE APP",
-      category: "Mobile Dev",
+      category: "MOBILE DEV",
       description:
         "Transformative mobile health platform that redefined primary care accessibility, empowering millions of users with advanced health tracking, provider communication, and comprehensive wellness management through intuitive mobile experience.",
       tech: ["React Native", "Node.js", "MongoDB", "REST APIs"],
@@ -87,7 +87,7 @@ const Projects = () => {
     {
       id: 6,
       title: "AETNA HEALTH & INSURANCE APP",
-      category: "Web App",
+      category: "WEB APP",
       description:
         "Enterprise-scale digital transformation project that modernized Aetna's legacy insurance systems, delivering a seamless member experience with advanced claims processing, provider network management, and comprehensive health benefit administration.",
       tech: ["React", ".NET", "C#", "SQL Server"],
@@ -135,7 +135,7 @@ const Projects = () => {
     {
       id: 9,
       title: "MULTI-CLOUD MCP SERVERS PROJECT",
-      category: "Cloud & AI",
+      category: "CLOUD & AI",
       description:
         "Next-generation multi-cloud infrastructure platform leveraging AWS MCP Servers and Azure Cloud Services to deliver unprecedented scalability and performance for AI workloads, enabling enterprise-grade machine learning at massive scale.",
       tech: ["AWS", "Azure", "Python", "Docker", "Kubernetes"],
@@ -166,7 +166,7 @@ const Projects = () => {
     },
   ];
 
-  const categories = ["ALL", "AI & ML", "Mobile Dev", "Web App", "Cloud & AI"];
+  const categories = ["ALL", "AI & ML", "MOBILE DEV", "WEB APP", "CLOUD & AI"];
   const [selectedCategory, setSelectedCategory] = useState("ALL");
 
   const filteredProjects =

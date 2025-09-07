@@ -135,7 +135,7 @@ const Contact = () => {
       setSubmitStatus({
         type: "success",
         message:
-          "Message sent successfully! I'll get back to you within 24 hours.",
+          "MESSAGE SENT SUCCESSFULLY! I'LL GET BACK TO YOU WITHIN 24 HOURS.",
       });
 
       setFormData({
@@ -148,7 +148,7 @@ const Contact = () => {
       setSubmitStatus({
         type: "error",
         message:
-          "Failed to send message. Please try again or contact me directly at s.srinivasan90@hotmail.com",
+          "FAILED TO SEND MESSAGE. PLEASE TRY AGAIN OR CONTACT ME DIRECTLY AT S.SRINIVASAN90@HOTMAIL.COM",
       });
     } finally {
       setIsLoading(false);
