@@ -1,0 +1,17 @@
+# Ensure proper MIME types for JavaScript modules
+
+<FilesMatch "\.(js|mjs)$">
+Header set Content-Type "application/javascript; charset=utf-8"
+</FilesMatch>
+
+# Ensure proper MIME types for CSS
+
+<FilesMatch "\.css$">
+Header set Content-Type "text/css; charset=utf-8"
+</FilesMatch>
+
+# Ensure proper MIME types for images
+
+<FilesMatch "\.(png|jpg|jpeg|gif|ico|svg)$">
+Header set Content-Type "image/png"
+</FilesMatch>
