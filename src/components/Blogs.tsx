@@ -3,17 +3,13 @@ import React, { useState, useEffect } from "react";
 const Blogs = () => {
   const [selectedBlog, setSelectedBlog] = useState<number | null>(null);
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (selectedBlog) {
-      // Prevent body scroll
       document.body.style.overflow = "hidden";
     } else {
-      // Restore body scroll
       document.body.style.overflow = "unset";
     }
 
-    // Cleanup function to restore scroll when component unmounts
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -81,7 +77,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
         <div className="text-center mb-16">
           <h1
             className="text-4xl md:text-6xl font-bold mb-6"
@@ -98,7 +93,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
           </p>
         </div>
 
-        {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <article
@@ -152,7 +146,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
           ))}
         </div>
 
-        {/* Load More Button - Only show if more than 6 posts */}
         {blogPosts.length > 6 && (
           <div className="text-center mt-12">
             <button
@@ -169,7 +162,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
         )}
       </div>
 
-      {/* Blog Modal */}
       {selectedBlog && (
         <div
           className="fixed inset-0 flex items-center justify-center p-4"
@@ -189,7 +181,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Fixed Header */}
             <div
               className="sticky top-0 z-10 p-6 md:p-8 pb-4 border-b"
               style={{
@@ -198,7 +189,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
                 backdropFilter: "blur(20px)",
               }}
             >
-              {/* Close Button */}
               <button
                 onClick={handleCloseModal}
                 className="absolute top-4 right-4 p-2 rounded-full transition-all duration-300 hover:scale-110"
@@ -224,7 +214,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
                 </svg>
               </button>
 
-              {/* Blog Header */}
               {(() => {
                 const post = blogPosts.find((p) => p.id === selectedBlog);
                 if (!post) return null;
@@ -259,7 +248,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
               })()}
             </div>
 
-            {/* Scrollable Content */}
             <div className="flex-1 overflow-y-auto p-6 md:p-8 pt-4 custom-scrollbar">
               {(() => {
                 const post = blogPosts.find((p) => p.id === selectedBlog);
@@ -267,7 +255,6 @@ I left the stress of banking behind and found a career in IT that excites me eve
 
                 return (
                   <div>
-                    {/* Content */}
                     <div
                       className="prose prose-lg max-w-none"
                       style={{

@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from "react";
-import useScrollAnimation from "../hooks/useScrollAnimation";
+import React, { useState } from "react";
 
 const Projects = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [projectsRef, projectsVisible] = useScrollAnimation({ threshold: 0.1 });
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const projects = [
     {
       id: 1,
@@ -206,7 +198,6 @@ const Projects = () => {
         paddingBottom: "40px",
       }}
     >
-      {/* Background Vintage Particles */}
       <div
         className="absolute top-20 left-10 w-16 h-16 rounded-full opacity-15 animate-particle-float"
         style={{ backgroundColor: "var(--accent-color)", animationDelay: "0s" }}
@@ -229,7 +220,6 @@ const Projects = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
-        {/* Header */}
         <div className="text-center mb-6 sm:mb-8">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 uppercase font-mono animate-fade-in-up"
@@ -259,7 +249,6 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 px-4">
           {categories.map((category) => (
             <button
@@ -283,7 +272,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredProjects.map((project) => (
             <div
@@ -296,7 +284,6 @@ const Projects = () => {
                   "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05)",
               }}
             >
-              {/* Project Header */}
               <div className="flex justify-between items-start mb-3 sm:mb-4">
                 <div
                   className="px-2 sm:px-3 py-1 rounded text-xs font-bold uppercase tracking-wider font-mono"
@@ -321,7 +308,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Project Title */}
               <h3
                 className="text-base sm:text-lg font-bold mb-2 sm:mb-3 uppercase tracking-wider font-mono"
                 style={{ color: "var(--text-primary)" }}
@@ -329,7 +315,6 @@ const Projects = () => {
                 {project.title}
               </h3>
 
-              {/* Project Description */}
               <p
                 className="text-xs sm:text-sm mb-3 sm:mb-4 font-mono leading-relaxed"
                 style={{ color: "var(--text-secondary)" }}
@@ -337,7 +322,6 @@ const Projects = () => {
                 {project.description}
               </p>
 
-              {/* Features */}
               <div className="mb-3 sm:mb-4">
                 <h4
                   className="text-xs font-bold mb-1 sm:mb-2 uppercase tracking-wider font-mono"
@@ -358,7 +342,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Tech Stack */}
               <div className="mb-3 sm:mb-4">
                 <h4
                   className="text-xs font-bold mb-1 sm:mb-2 uppercase tracking-wider font-mono"
@@ -384,7 +367,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Project Year */}
               <div className="flex justify-between items-center">
                 <span
                   className="text-xs font-bold uppercase tracking-wider font-mono"

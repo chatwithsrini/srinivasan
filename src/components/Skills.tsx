@@ -1,15 +1,6 @@
-import React, { useState, useEffect } from "react";
-import useScrollAnimation from "../hooks/useScrollAnimation";
+import React from "react";
 
 const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [skillsRef, skillsVisible] = useScrollAnimation({ threshold: 0.1 });
-  const [techRef, techVisible] = useScrollAnimation({ threshold: 0.2 });
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
   const expertise = [
     {
       category: "Frontend Development",
@@ -118,7 +109,6 @@ const Skills = () => {
         paddingBottom: "40px",
       }}
     >
-      {/* Background Vintage Particles */}
       <div
         className="absolute top-20 left-20 w-24 h-24 rounded-full opacity-15 animate-particle-float"
         style={{ backgroundColor: "var(--accent-color)", animationDelay: "0s" }}
@@ -141,7 +131,6 @@ const Skills = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
-        {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 uppercase font-mono animate-fade-in-up"
@@ -168,7 +157,6 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Expertise Categories */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
           {expertise.map((area, index) => (
             <div
@@ -214,7 +202,6 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Technology Icons */}
         <div className="text-center">
           <h3
             className="text-base sm:text-lg font-bold mb-4 sm:mb-6 uppercase tracking-wider font-mono"

@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const About = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [aboutRef, aboutVisible] = useScrollAnimation({ threshold: 0.1 });
-  const [principlesRef, principlesVisible] = useScrollAnimation({
-    threshold: 0.2,
-  });
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const principles = [
     {
@@ -81,7 +73,6 @@ const About = () => {
         paddingBottom: "40px",
       }}
     >
-      {/* Background Vintage Particles */}
       <div
         className="absolute top-32 right-20 w-20 h-20 rounded-full opacity-15 animate-particle-float"
         style={{ backgroundColor: "var(--accent-color)", animationDelay: "0s" }}
@@ -107,7 +98,6 @@ const About = () => {
         ref={aboutRef}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center"
       >
-        {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2
             className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 uppercase font-mono ${
@@ -152,7 +142,6 @@ const About = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
-          {/* Left Side - Biography */}
           <div className="space-y-4 sm:space-y-6">
             <div
               className="p-4 sm:p-6 rounded-lg shadow-2xl"
@@ -210,7 +199,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Core Principles */}
             <div
               className="p-4 sm:p-6 rounded-lg shadow-2xl"
               style={{
@@ -268,7 +256,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Key Achievements */}
             <div
               className="p-4 sm:p-6 rounded-lg shadow-2xl"
               style={{
@@ -369,7 +356,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right Side - Journey Timeline */}
           <div className="space-y-4 sm:space-y-6">
             <div
               className="p-4 sm:p-6 rounded-lg shadow-2xl"
@@ -429,7 +415,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Call to Action */}
             <div className="text-center">
               <a
                 href="#contact"

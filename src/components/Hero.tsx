@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [heroRef, heroVisible] = useScrollAnimation({ threshold: 0.1 });
   const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.2 });
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   const stats = [
     { number: "8+", label: "Years Experience" },
@@ -24,7 +19,6 @@ const Hero = () => {
         background: "var(--bg-primary)",
       }}
     >
-      {/* Background Vintage Particles - Hidden on mobile and tablet */}
       <div className="hidden lg:block">
         <div
           className="absolute top-32 left-10 w-20 h-20 rounded-full opacity-20 animate-particle-float"
@@ -72,7 +66,6 @@ const Hero = () => {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col justify-center h-full"
       >
         <div className="space-y-8">
-          {/* Main Heading */}
           <div
             className={`mb-6 sm:mb-8 ${
               heroVisible ? "animate-fade-in-up" : "opacity-0"
@@ -97,7 +90,6 @@ const Hero = () => {
             </h1>
           </div>
 
-          {/* Subtitle */}
           <div
             className={`text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-6 sm:mb-8 uppercase tracking-widest border-t border-b py-3 sm:py-4 ${
               heroVisible ? "animate-slide-in-up" : "opacity-0"
@@ -119,7 +111,6 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Description */}
           <p
             className="text-sm sm:text-base md:text-lg mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-mono px-4"
             style={{
@@ -158,7 +149,6 @@ const Hero = () => {
             </span>
           </p>
 
-          {/* Statistics */}
           <div
             ref={statsRef}
             className={`mb-8 sm:mb-12 ${
@@ -198,7 +188,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Tech Stack */}
           <div className="mb-8 sm:mb-12">
             <p
               className="text-sm sm:text-base md:text-lg font-bold mb-6 sm:mb-8 uppercase tracking-wider font-mono"
@@ -368,7 +357,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Call to Action */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
             <a
               href="#projects"

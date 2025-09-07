@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-// @ts-ignore
 import logoLight from "../assets/logo.png";
-// @ts-ignore
 import logoDark from "../assets/logo-dark.png";
 
 interface HeaderProps {
@@ -18,12 +16,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 50);
-      console.log(
-        "Header scroll position:",
-        scrollTop,
-        "isScrolled:",
-        scrollTop > 50
-      );
     };
 
     const forceHeaderFixed = () => {
@@ -76,9 +68,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
-          {/* Mobile/Tablet Layout */}
           <div className="flex items-center justify-between w-full md:hidden">
-            {/* Logo - Centered */}
             <div className="flex-1 flex justify-center">
               {location.pathname === "/blogs" ? (
                 <Link to="/#home" className="flex items-center justify-center">
@@ -107,7 +97,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               )}
             </div>
 
-            {/* Theme Toggle - Right Side */}
             <div className="flex items-center">
               <button
                 onClick={toggleDarkMode}
@@ -142,9 +131,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
             </div>
           </div>
 
-          {/* Desktop Layout */}
           <div className="hidden md:flex items-center w-full">
-            {/* Logo - 25% */}
             <div
               className="flex items-center justify-center"
               style={{ width: "25%" }}
@@ -186,7 +173,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               )}
             </div>
 
-            {/* Desktop Navigation - 65% */}
             <nav
               className="flex justify-center space-x-8"
               style={{ width: "65%" }}
@@ -284,7 +270,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                     </Link>
                   );
                 } else {
-                  // If we're on the blogs page, use Link to navigate to home with hash
                   if (location.pathname === "/blogs") {
                     return (
                       <Link
@@ -314,7 +299,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               })}
             </nav>
 
-            {/* Theme Toggle - 10% */}
             <div
               className="flex items-center justify-end"
               style={{ width: "10%" }}

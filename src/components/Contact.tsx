@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Contact = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [contactRef, contactVisible] = useScrollAnimation({ threshold: 0.1 });
-
   useEffect(() => {
-    setIsVisible(true);
-    // Initialize EmailJS
     emailjs.init("JyCXDPu437QOFYDL2");
   }, []);
 
@@ -97,7 +91,6 @@ const Contact = () => {
     });
   };
 
-  // Email sending function using EmailJS
   const sendEmail = async (formData: {
     name: string;
     email: string;
@@ -109,13 +102,12 @@ const Contact = () => {
     const userID = "JyCXDPu437QOFYDL2";
 
     try {
-      // Prepare template parameters for EmailJS
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: "s.srinivasan90@hotmail.com", // Your email address
+        to_email: "s.srinivasan90@hotmail.com",
       };
 
       const response = await emailjs.send(
@@ -146,7 +138,6 @@ const Contact = () => {
           "Message sent successfully! I'll get back to you within 24 hours.",
       });
 
-      // Reset form after successful submission
       setFormData({
         name: "",
         email: "",
@@ -175,7 +166,6 @@ const Contact = () => {
         paddingBottom: "40px",
       }}
     >
-      {/* Background Vintage Particles */}
       <div
         className="absolute top-24 right-24 w-24 h-24 rounded-full opacity-15 animate-particle-float"
         style={{ backgroundColor: "var(--accent-color)", animationDelay: "0s" }}
@@ -198,7 +188,6 @@ const Contact = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
-        {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 uppercase font-mono animate-fade-in-up"
@@ -240,9 +229,7 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
-          {/* Left Side - Contact Information */}
           <div className="space-y-6 sm:space-y-8">
-            {/* Contact Methods */}
             <div
               className="p-4 sm:p-6 rounded-lg shadow-2xl"
               style={{
@@ -300,7 +287,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Availability */}
             <div
               className="p-4 sm:p-6 rounded-lg shadow-2xl"
               style={{
@@ -357,7 +343,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Side - Contact Form */}
           <div
             className="p-4 sm:p-6 rounded-lg border-2"
             style={{
@@ -373,7 +358,6 @@ const Contact = () => {
               ▶ SEND MESSAGE
             </h4>
 
-            {/* Status Messages */}
             {submitStatus.type && (
               <div
                 className={`mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg border-2 font-mono text-sm sm:text-base ${

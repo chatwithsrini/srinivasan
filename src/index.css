@@ -1,30 +1,22 @@
-/* Vintage Monospace Fonts - No external imports needed */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    /* Vintage Light theme colors */
-    --bg-primary: #f9f9eb; /* Vintage cream */
-    --bg-secondary: #f5f5dc; /* Light cream */
-    --bg-accent: #fff8dc; /* Cornsilk */
-    --text-primary: #8b4513; /* Sepia brown - original working color */
-    --text-secondary: #a0522d; /* Sienna - original working color */
-    --text-muted: #cd853f; /* Peru - original working color */
-    --border-color: #d2b48c; /* Tan */
-    --card-bg: rgba(249, 249, 235, 0.9); /* Vintage cream with transparency */
-    --header-bg: rgba(
-      249,
-      249,
-      235,
-      0.95
-    ); /* Vintage cream with more opacity */
-    --glass-bg: rgba(218, 165, 32, 0.1); /* Antique gold with transparency */
-    --accent-color: #daa520; /* Antique gold */
-    --accent-light: #f4e4bc; /* Light antique gold */
-    --accent-dark: #b8860b; /* Dark goldenrod */
+    --bg-primary: #f9f9eb;
+    --bg-secondary: #f5f5dc;
+    --bg-accent: #fff8dc;
+    --text-primary: #8b4513;
+    --text-secondary: #a0522d;
+    --text-muted: #cd853f;
+    --border-color: #d2b48c;
+    --card-bg: rgba(249, 249, 235, 0.9);
+    --header-bg: rgba(249, 249, 235, 0.95);
+    --glass-bg: rgba(218, 165, 32, 0.1);
+    --accent-color: #daa520;
+    --accent-light: #f4e4bc;
+    --accent-dark: #b8860b;
     --shadow-soft: 0 4px 6px -1px rgba(139, 69, 19, 0.1),
       0 2px 4px -1px rgba(139, 69, 19, 0.06);
     --shadow-medium: 0 10px 15px -3px rgba(139, 69, 19, 0.1),
@@ -34,25 +26,19 @@
   }
 
   .dark {
-    /* Vintage Dark theme colors - Reverted to working version */
-    --bg-primary: #2f1b14; /* Dark sepia */
-    --bg-secondary: #3d2914; /* Darker sepia */
-    --bg-accent: #4a2c17; /* Even darker sepia */
-    --text-primary: #f5f5dc; /* Cream */
-    --text-secondary: #d2b48c; /* Tan */
-    --text-muted: #bc9a6a; /* Light tan */
-    --border-color: #8b4513; /* Sepia brown */
-    --card-bg: rgba(47, 27, 20, 0.9); /* Dark sepia with transparency */
-    --header-bg: rgba(47, 27, 20, 0.95); /* Dark sepia with more opacity */
-    --glass-bg: rgba(
-      218,
-      165,
-      32,
-      0.15
-    ); /* Antique gold with more transparency */
-    --accent-color: #daa520; /* Antique gold */
-    --accent-light: #f4e4bc; /* Light antique gold */
-    --accent-dark: #b8860b; /* Dark goldenrod */
+    --bg-primary: #2f1b14;
+    --bg-secondary: #3d2914;
+    --bg-accent: #4a2c17;
+    --text-primary: #f5f5dc;
+    --text-secondary: #d2b48c;
+    --text-muted: #bc9a6a;
+    --border-color: #8b4513;
+    --card-bg: rgba(47, 27, 20, 0.9);
+    --header-bg: rgba(47, 27, 20, 0.95);
+    --glass-bg: rgba(218, 165, 32, 0.15);
+    --accent-color: #daa520;
+    --accent-light: #f4e4bc;
+    --accent-dark: #b8860b;
     --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
       0 2px 4px -1px rgba(0, 0, 0, 0.1);
     --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
@@ -77,7 +63,6 @@
     letter-spacing: 0.025em;
   }
 
-  /* Custom scrollbar - Theme matched */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -105,13 +90,11 @@
     box-shadow: 0 0 12px rgba(218, 165, 32, 0.5);
   }
 
-  /* Firefox scrollbar styling */
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--accent-color) var(--bg-secondary);
   }
 
-  /* Custom scrollbar for specific containers */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
   }
@@ -133,7 +116,6 @@
 }
 
 @layer components {
-  /* Vintage Button Styles */
   .btn-primary {
     background: var(--accent-color);
     color: var(--bg-primary);
@@ -160,7 +142,6 @@
     color: var(--bg-primary);
   }
 
-  /* Vintage Monospace Typography */
   .heading-1 {
     font-family: "Courier New", "Monaco", "Lucida Console", "Liberation Mono",
       "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier", monospace;
@@ -211,7 +192,6 @@
     letter-spacing: 0.02em;
   }
 
-  /* Vintage Card Styles */
   .card {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
@@ -226,25 +206,21 @@
     transition: all 0.3s ease;
   }
 
-  /* Vintage Glass Effect */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
   }
 
-  /* Vintage Cursor */
   .vintage-cursor {
     cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='8' fill='%23daa520' opacity='0.8'/><circle cx='10' cy='10' r='4' fill='%23f4e4bc'/></svg>"),
       auto;
   }
 
-  /* Ensure proper text visibility in light mode */
   .light-mode-text {
     color: var(--text-primary) !important;
   }
 
-  /* Force monospace font for all elements */
   *,
   *::before,
   *::after {
@@ -252,7 +228,6 @@
       "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier", monospace !important;
   }
 
-  /* Enhanced vintage monospace styling */
   h1,
   h2,
   h3,
@@ -278,7 +253,6 @@
     letter-spacing: 0.015em;
   }
 
-  /* Vintage typewriter effect for inputs */
   input,
   textarea {
     font-family: "Courier New", "Monaco", "Lucida Console", "Liberation Mono",
@@ -286,7 +260,6 @@
     letter-spacing: 0.02em;
   }
 
-  /* Button styling with monospace */
   button {
     font-family: "Courier New", "Monaco", "Lucida Console", "Liberation Mono",
       "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier", monospace !important;
@@ -294,19 +267,16 @@
     font-weight: bold;
   }
 
-  /* Ensure no other elements can override header positioning */
   * {
     box-sizing: border-box;
   }
 
-  /* Ensure proper contrast for glass elements */
   .glass-bg {
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
   }
 
-  /* Project filter button improvements for dark mode */
   .project-filter-btn {
     transition: all 0.3s ease;
   }
@@ -316,7 +286,6 @@
     box-shadow: var(--shadow-medium);
   }
 
-  /* Dark mode specific improvements for filter buttons */
   .dark .project-filter-btn {
     background-color: var(--glass-bg) !important;
     color: var(--text-primary) !important;
@@ -329,7 +298,6 @@
     border: 1px solid var(--accent-color) !important;
   }
 
-  /* Project category tags styling */
   .project-category-tag {
     background-color: var(--accent-color) !important;
     color: white !important;
@@ -345,7 +313,6 @@
     box-shadow: var(--shadow-medium);
   }
 
-  /* Prevent any parent container from affecting header */
   body,
   html,
   #root,
@@ -353,7 +320,6 @@
     position: relative;
   }
 
-  /* Fixed header positioning with high priority */
   header,
   .header-fixed {
     position: fixed !important;
@@ -367,7 +333,6 @@
     perspective: 1000px !important;
   }
 
-  /* Smooth scrolling with header offset */
   #about,
   #skills,
   #projects,
@@ -377,17 +342,14 @@
 }
 
 @layer utilities {
-  /* Static styling - no animations */
   .static-text {
     color: var(--text-primary);
   }
 
-  /* Static text styling */
   .static-text {
     display: inline-block;
   }
 
-  /* Vintage Paper Effect */
   .vintage-paper {
     background: var(--bg-primary);
     background-image: linear-gradient(
@@ -427,7 +389,6 @@
     pointer-events: none;
   }
 
-  /* Vintage Border Effects */
   .vintage-border {
     border: 2px solid var(--border-color);
     border-image: linear-gradient(
@@ -458,7 +419,6 @@
   }
 }
 
-/* Background particle animations only */
 @keyframes particleFloat {
   0%,
   100% {
@@ -483,7 +443,6 @@
   animation: particleFloat 8s ease-in-out infinite;
 }
 
-/* Typewriter Loading Animations */
 @keyframes typewriter-typing {
   0% {
     transform: translateX(0);
@@ -521,7 +480,6 @@
   animation: text-wave 2s ease-in-out infinite;
 }
 
-/* Square Pulse Animation for Loader */
 @keyframes square-pulse {
   0%,
   100% {
@@ -534,7 +492,6 @@
   }
 }
 
-/* Simple Page Animations */
 @keyframes fade-in-up {
   0% {
     opacity: 0;
@@ -599,7 +556,6 @@
   opacity: 0;
 }
 
-/* Enhanced Animation Classes */
 .animate-slide-in-up {
   animation: slide-in-up 0.8s ease-out forwards;
   opacity: 0;
@@ -650,7 +606,6 @@
   animation: wiggle 1s ease-in-out;
 }
 
-/* Animation Keyframes */
 @keyframes slide-in-up {
   0% {
     opacity: 0;
@@ -797,7 +752,6 @@
   }
 }
 
-/* Staggered Animation Delays */
 .animate-delay-100 {
   animation-delay: 0.1s;
 }
@@ -830,7 +784,6 @@
   animation-delay: 0.8s;
 }
 
-/* Hover Animations */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -889,7 +842,6 @@
   }
 }
 
-/* Page Transition Animations */
 .page-enter {
   opacity: 0;
   transform: translateY(20px);
@@ -912,7 +864,6 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Scroll-triggered animations */
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
@@ -924,7 +875,6 @@
   transform: translateY(0);
 }
 
-/* Loading animations */
 .loading-dots {
   display: inline-block;
 }
@@ -951,19 +901,16 @@
   }
 }
 
-/* Mobile bottom navigation spacing */
 @media (max-width: 767px) {
   .hero-mobile-padding {
     padding-bottom: 80px !important;
   }
 
-  /* Ensure content doesn't get hidden behind bottom navigation */
   body {
     padding-bottom: 80px;
   }
 }
 
-/* Responsive Hero section adjustments */
 @media (min-width: 768px) {
   .hero-desktop {
     padding-bottom: 0px !important;

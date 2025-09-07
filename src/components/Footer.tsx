@@ -10,7 +10,6 @@ const Footer = () => {
         borderTop: "1px solid var(--border-color)",
       }}
     >
-      {/* Background Vintage Particles */}
       <div
         className="absolute top-4 left-10 w-8 h-8 rounded-full opacity-10 animate-particle-float"
         style={{ backgroundColor: "var(--accent-color)", animationDelay: "0s" }}
@@ -25,9 +24,7 @@ const Footer = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Four Column Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-          {/* Column 1 - About */}
           <div className="lg:col-span-1">
             <h3
               className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 uppercase tracking-wider font-mono"
@@ -50,7 +47,6 @@ const Footer = () => {
               }
             </p>
 
-            {/* Social Links */}
             <div className="flex space-x-2 sm:space-x-3">
               {[
                 {
@@ -126,7 +122,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2 - Quick Links */}
           <div>
             <h3
               className="text-base sm:text-lg font-bold mb-3 sm:mb-4 uppercase tracking-wider font-mono"
@@ -170,7 +165,6 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Column 3 - Key Achievements */}
           <div>
             <h3
               className="text-base sm:text-lg font-bold mb-3 sm:mb-4 uppercase tracking-wider font-mono"
@@ -226,7 +220,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 4 - Contact */}
           <div>
             <h3
               className="text-base sm:text-lg font-bold mb-3 sm:mb-4 uppercase tracking-wider font-mono"
@@ -265,7 +258,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Border and Copyright */}
         <div
           className="pt-6 sm:pt-8 border-t flex flex-col md:flex-row justify-between items-center"
           style={{ borderColor: "var(--border-color)" }}
