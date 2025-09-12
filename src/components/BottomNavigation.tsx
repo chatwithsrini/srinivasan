@@ -14,6 +14,10 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
       setActiveTab("blogs");
       return;
     }
+    if (location.pathname === "/resume") {
+      setActiveTab("resume");
+      return;
+    }
 
     const handleScroll = () => {
       const sections = ["home", "about", "skills", "projects", "contact"];
@@ -80,6 +84,16 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
       ),
     },
     {
+      id: "resume",
+      name: "RESUME",
+      href: "/resume",
+      icon: (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+        </svg>
+      ),
+    },
+    {
       id: "blogs",
       name: "BLOGS",
       href: "/blogs",
@@ -115,7 +129,7 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
           {navigationItems.map((item) => {
             const isActive = activeTab === item.id;
 
-            if (item.id === "blogs") {
+            if (item.id === "blogs" || item.id === "resume") {
               return (
                 <Link
                   key={item.id}
@@ -149,7 +163,10 @@ const BottomNavigation = ({ darkMode }: BottomNavigationProps) => {
                 </Link>
               );
             } else {
-              if (location.pathname === "/blogs") {
+              if (
+                location.pathname === "/blogs" ||
+                location.pathname === "/resume"
+              ) {
                 return (
                   <Link
                     key={item.id}

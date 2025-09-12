@@ -7,6 +7,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Blogs from "./components/Blogs";
+import Resume from "./components/Resume";
 import Footer from "./components/Footer";
 import BottomNavigation from "./components/BottomNavigation";
 import Loading from "./components/Loading";
@@ -62,6 +63,7 @@ function App() {
             }
           />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
         <Footer />
       </div>

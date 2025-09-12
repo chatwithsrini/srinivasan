@@ -213,7 +213,7 @@
   }
 
   .vintage-cursor {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='8' fill='%23daa520' opacity='0.8'/><circle cx='10' cy='10' r='4' fill='%23f4e4bc'/></svg>"),
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path d='M2 2 L16 8 L10 10 L8 16 Z' fill='%238b4513' stroke='%23a0522d' stroke-width='1'/><path d='M2 2 L8 8 L6 9 L2 2 Z' fill='%23a0522d'/></svg>"),
       auto;
   }
 
@@ -918,5 +918,260 @@
 
   body {
     padding-bottom: 0px;
+  }
+}
+
+/* Print styles for Resume */
+@media print {
+  html,
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Print only the resume content */
+  body * {
+    visibility: hidden !important;
+  }
+  .resume-container,
+  .resume-container * {
+    visibility: visible !important;
+  }
+  .resume-container {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  /* Grayscale palette mapped from theme */
+  .resume-container {
+    --bg-primary: #ffffff !important;
+    --bg-secondary: #f5f5f5 !important;
+    --text-primary: #111111 !important;
+    --text-secondary: #333333 !important;
+    --text-muted: #555555 !important;
+    --accent-color: #111111 !important;
+    --accent-light: #eaeaea !important;
+    --accent-dark: #000000 !important;
+    --border-color: #d1d5db !important;
+
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    max-width: 210mm !important;
+    width: 100% !important;
+  }
+
+  /* Keep 1:2 columns on print */
+  .resume-container .flex {
+    display: flex !important;
+  }
+  .resume-container .w-1\/3 {
+    width: 35% !important;
+  }
+  .resume-container .w-2\/3 {
+    width: 65% !important;
+  }
+
+  /* Tighter spacing for print */
+  .resume-container .p-8 {
+    padding: 14px !important;
+  }
+  .resume-container .p-6 {
+    padding: 12px !important;
+  }
+  .resume-container .mb-12 {
+    margin-bottom: 16px !important;
+  }
+  .resume-container .mb-8 {
+    margin-bottom: 14px !important;
+  }
+  .resume-container .mb-6 {
+    margin-bottom: 12px !important;
+  }
+  .resume-container .mb-4 {
+    margin-bottom: 10px !important;
+  }
+  .resume-container .px-3 {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  .resume-container .py-1 {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+  }
+
+  /* Headings sizing */
+  .resume-container h1 {
+    font-size: 18pt !important;
+  }
+  .resume-container h2 {
+    font-size: 14pt !important;
+  }
+  .resume-container h3 {
+    font-size: 12.5pt !important;
+  }
+  .resume-container h4 {
+    font-size: 11.5pt !important;
+  }
+  .resume-container h5,
+  .resume-container h6 {
+    font-size: 11pt !important;
+  }
+
+  /* Remove gradients */
+  .resume-container .bg-gradient-to-br,
+  .resume-container .bg-gradient-to-b,
+  .resume-container .bg-gradient-to-r {
+    background: #f7f7f7 !important;
+  }
+
+  /* Sidebar (left column) visibility enhancements */
+  .resume-container .flex > div:first-child {
+    background: #f3f4f6 !important; /* light gray */
+    color: #111111 !important;
+  }
+
+  /* Sidebar headings and labels darker */
+  .resume-container .flex > div:first-child h1,
+  .resume-container .flex > div:first-child h2,
+  .resume-container .flex > div:first-child h3,
+  .resume-container .flex > div:first-child h4,
+  .resume-container .flex > div:first-child h5,
+  .resume-container .flex > div:first-child h6 {
+    color: #111111 !important;
+  }
+
+  /* Sidebar section separators */
+  .resume-container .flex > div:first-child .mb-8 {
+    border-bottom: 1px solid #d1d5db !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Sidebar small text/readability */
+  .resume-container .flex > div:first-child .text-xs,
+  .resume-container .flex > div:first-child .text-sm {
+    color: #222222 !important;
+  }
+
+  /* Contact icon badges more visible and properly aligned */
+  .resume-container .flex > div:first-child .w-6.h-6 {
+    background-color: #e5e7eb !important;
+    color: #111111 !important;
+    border: 1px solid #d1d5db !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Contact section alignment */
+  .resume-container .flex > div:first-child .space-y-3 > div {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Sidebar chips (skills) readable */
+  .resume-container .flex > div:first-child .rounded-full,
+  .resume-container .flex > div:first-child .px-2.py-1 {
+    background-color: #e5e7eb !important;
+    color: #111111 !important;
+    border: 1px solid #d1d5db !important;
+  }
+
+  /* Underline links in print */
+  .resume-container a {
+    text-decoration: underline !important;
+    color: #111111 !important;
+  }
+
+  /* Chips/badges/cards */
+  .resume-container .rounded-full {
+    background-color: #e5e7eb !important;
+    color: #111111 !important;
+    border: 1px solid #d1d5db !important;
+    box-shadow: none !important;
+  }
+  .resume-container .border,
+  .resume-container .border-b,
+  .resume-container .border-t,
+  .resume-container .border-l,
+  .resume-container .border-r {
+    border-color: #d1d5db !important;
+  }
+  .resume-container .shadow,
+  .resume-container .shadow-md,
+  .resume-container .shadow-lg,
+  .resume-container .shadow-2xl {
+    box-shadow: none !important;
+  }
+
+  /* Section bars */
+  .resume-container .w-1.h-8 {
+    background: #111111 !important;
+  }
+
+  /* Prevent awkward page breaks inside cards/lists */
+  .resume-container .border,
+  .resume-container .pl-6,
+  .resume-container .grid > div,
+  .resume-container .space-y-6 > div,
+  .resume-container .space-y-2 > li,
+  .resume-container .space-y-2 > div {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Reduce avatar and header spacing */
+  .resume-container .w-32 {
+    width: 72px !important;
+  }
+  .resume-container .h-32 {
+    height: 72px !important;
+  }
+  .resume-container .w-28 {
+    width: 60px !important;
+  }
+  .resume-container .h-28 {
+    height: 60px !important;
+  }
+
+  /* Hide non-essential elements when printing */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Page breaks */
+  .print-page-break {
+    break-after: page;
+    page-break-after: always;
+  }
+  .page-break-before {
+    break-before: page;
+    page-break-before: always;
+  }
+  .page-break-after {
+    break-after: page;
+    page-break-after: always;
+  }
+  .page-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Avoid full viewport height in print */
+  .resume-container .min-h-screen {
+    min-height: auto !important;
   }
 }

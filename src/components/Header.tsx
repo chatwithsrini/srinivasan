@@ -70,7 +70,8 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
         <div className="flex items-center justify-between h-full">
           <div className="flex items-center justify-between w-full md:hidden">
             <div className="flex-1 flex justify-center">
-              {location.pathname === "/blogs" ? (
+              {location.pathname === "/blogs" ||
+              location.pathname === "/resume" ? (
                 <Link to="/#home" className="flex items-center justify-center">
                   <img
                     src={darkMode ? logoDark : logoLight}
@@ -136,7 +137,8 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               className="flex items-center justify-center"
               style={{ width: "25%" }}
             >
-              {location.pathname === "/blogs" ? (
+              {location.pathname === "/blogs" ||
+              location.pathname === "/resume" ? (
                 <Link
                   to="/#home"
                   className="flex items-center justify-center w-full h-full"
@@ -231,6 +233,19 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                   ),
                 },
                 {
+                  name: "Resume",
+                  href: "/resume",
+                  icon: (
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                    </svg>
+                  ),
+                },
+                {
                   name: "Blogs",
                   href: "/blogs",
                   icon: (
@@ -257,7 +272,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                   ),
                 },
               ].map((item) => {
-                if (item.name === "Blogs") {
+                if (item.name === "Blogs" || item.name === "Resume") {
                   return (
                     <Link
                       key={item.name}
@@ -270,7 +285,10 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                     </Link>
                   );
                 } else {
-                  if (location.pathname === "/blogs") {
+                  if (
+                    location.pathname === "/blogs" ||
+                    location.pathname === "/resume"
+                  ) {
                     return (
                       <Link
                         key={item.name}
